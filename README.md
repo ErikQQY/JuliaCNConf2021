@@ -1,4 +1,4 @@
-# Welcome to SciFracX CN Conf 2021
+# Welcome to [Slidev](https://github.com/slidevjs/slidev)!
 
 To start the slide show:
 
@@ -8,4 +8,4 @@ To start the slide show:
 
 Edit the [slides.md](./slides.md) to see the changes.
 
-This is the repo for JuliaCNConf 2021 of SciFracX~
+Learn more about Slidev on [documentations](https://sli.dev/).

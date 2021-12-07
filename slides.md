@@ -69,10 +69,15 @@ SciFracX is an orgnization aiming at deploying the advantages of Julia to fracti
 
 *Scientific Fractional Order Computing*
 
+<div grid="~ cols-2 gap-2" m="-t-2">
+
 - There are huge gap between theoretical researches and applications in fractional scientific computing area. SciFracX is aiming at filling the gap and bridge the theoretical and application.
 
 - No deadline, no pushing, just a labor of love.
 
+<img border="rounded" src="/assets/favicon.ico" class="m-10 left-130 w-70 " />
+
+</div>
 
 <br>
 <br>
@@ -194,7 +199,7 @@ layout: default
 <v-clicks>
 
 
-<img border="rounded" src="/assets/history.png" class="m-0 w-150" />
+<img border="rounded" src="/assets/history.png" />
 
 
 
@@ -213,7 +218,7 @@ layout: default
 
 <v-clicks>
 
-<img border="rounded" src="/assets/recent.png" class="m-0 w-150" />
+<img border="rounded" src="/assets/recent.png" />
 
 </v-clicks>
 
@@ -247,15 +252,16 @@ $$
 
 We can know the n-th derivative:
 
-$$
-f^{(n)}(x)=\frac{d^n}{dx^n}x^k=\frac{k!}{(k-n)!}x^{k-n}=\frac{\Gamma(k+1)}{\Gamma(k-n+1)}x^{k-n}
-$$
-
 </v-clicks>
 
 ---
 
 <v-clicks>
+
+$$
+f^{(n)}(x)=\frac{d^n}{dx^n}x^k=\frac{k!}{(k-n)!}x^{k-n}=\frac{\Gamma(k+1)}{\Gamma(k-n+1)}x^{k-n}
+$$
+
 
 So we replace **n** with $\frac{1}{2}$, we can get the semi-derivative of the power function:
 
@@ -554,7 +560,7 @@ plot(tspan, result, title=s, legend=:bottomright, label="ODE Numerical Solution!
 plot!(tspan, target, lw=3,ls=:dash,label="ODE Analytical Solution!")
 ```
 
-<img border="rounded" src="/assets/ode_example.png" class="m-0 w-130 h-80" />
+<img border="rounded" src="/assets/ode_example.png" />
 
 
 </v-clicks>
