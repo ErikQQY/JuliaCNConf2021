@@ -28,6 +28,10 @@ drawings:
 <br>
 <br>
 
+ErikQQY 
+
+<br>
+
 JuliaCN 2021
 
 
@@ -52,11 +56,15 @@ layout: default
 
 2. History of fractional calculus and fractional differential equations
 
-3. Get hands on FractionalCalculus.jl
+3. Introduction to Fractional Calculus
 
-4. Get hands on FractionalDiffEq.jl
+4. Get hands on FractionalCalculus.jl
 
-5. One more thing
+5. Introduction to Fractional Differential Equations
+
+6. Get hands on FractionalDiffEq.jl
+
+7. One more thing
 
 ---
 layout: 'intro'
@@ -199,7 +207,7 @@ layout: default
 <v-clicks>
 
 
-<img border="rounded" src="/assets/history.png" />
+<img border="rounded" src="/assets/history.png" class="m-0 w-150 h-100" />
 
 
 
@@ -218,7 +226,7 @@ layout: default
 
 <v-clicks>
 
-<img border="rounded" src="/assets/recent.png" />
+<img border="rounded" src="/assets/recent.png" class="m-0 w-150 h-100" />
 
 </v-clicks>
 
@@ -232,11 +240,11 @@ layout: default
 
 <v-clicks>
 
-We first think about how the fractional derivative is being obtained.
+We first think about how can we get the fractional derivative.
 
 Suppose we want the fractional derivative of a power function: $f(x)=x^k$
 
-Using the basic calculus we have learned is enough:
+The basic calculus we learned before is enough:
 
 The first derivative:
 
@@ -244,10 +252,10 @@ $$
 f'(x)=\frac{d}{dx}f(x)=kx^{k-1}
 $$
 
-And the second:
+And the second derivative:
 
 $$
-f''(x)=\frac{d^2}{dx^2}f(x)=k^2x^{k-2}
+f''(x)=\frac{d^2}{dx^2}f(x)=k(k-1)x^{k-2}
 $$
 
 We can know the n-th derivative:
@@ -269,10 +277,90 @@ $$
 f^{(\frac{1}{2})}(x)=\frac{\Gamma(2)}{\Gamma(\frac{3}{2})}x^{\frac{1}{2}}=\frac{2}{\sqrt\pi}x^{\frac{1}{2}}
 $$
 
-Bingo🎉!! You get the semi-derivative of $f(x)=x$!
+Bingo🎉!! We get the semi-derivative of $f(x)=x$!
 
 </v-clicks>
 
+
+---
+layout: default
+---
+
+## Then what's the geometric and physical meaning of fractional calculus?
+
+<div class="grid grid-cols-2 gap-x-1">
+
+<div>
+
+<img src="/assets/shadow.png" class="m-0 w-150" />
+
+
+
+Shadows on the wall
+
+
+
+Three axis: $\tau$, $g(\tau)$, $f(\tau)$
+
+</div>
+
+<div>
+
+$$
+_0^{RL}Dt^{-\alpha}f(t)=\frac{1}{\Gamma(\alpha)}\int_0^t\frac{f(\tau)}{(t-\tau)^{(1-\alpha)}}d\tau
+$$
+$$
+g(\tau)=\frac{1}{\Gamma(\alpha+1)}[t^\alpha-(t-\tau)^\alpha]
+$$
+
+$$
+\downarrow
+$$
+
+$$
+_0^{RL}D_t^{-\alpha}f(t)=\int_0^tf(\tau)d g(\tau)
+$$
+
+
+Shadow in $\tau$~$f(\tau)$ plane: **Classical Inetgral**
+
+Shadow in $g(\tau)$~$f(\tau)$ plane: **Fractional Integral**
+
+</div>
+
+</div>
+
+---
+layout: default
+---
+
+# There different grades of fractional calculus
+
+<v-clicks>
+
+### Constant non-integer order (CO)
+
+$$
+_aD^\alpha_t f(t)=\frac{1}{\Gamma(n-\alpha)}(\frac{d}{dt})^n\int_a^t\frac{f(\tau)d\tau}{(t-\tau)^{\alpha-n+1}},\quad (n-1\leq\alpha < n)
+$$
+
+### Variable order (VO)
+
+$$
+^C_0D^{\alpha(t)}_t=\frac{1}{\Gamma(n-\alpha(t))}\int_0^t\frac{f^{(n)}(\tau)d\tau}{(t-\tau)^{\alpha(t)-n+1}},\quad (n-1\leq\alpha(t) < n)
+$$
+
+### Distributed order (DO)
+
+$$
+_aD^{\phi(\alpha)}f(t)=\int_c^d\phi(\alpha){_aD_t^\alpha}f(t)d\alpha
+$$
+
+$$
+\int_c^d\phi(\alpha)d\alpha=1
+$$
+
+</v-clicks>
 
 
 ---
@@ -321,14 +409,40 @@ Let's plot different order integral and derivative:
 
 <v-clicks>
 
+<div>
+
+Different order integral of $f(x)=x$
+
 <img src="/assets/different_order_x_integral.png" />
 
+</div>
+
+<div>
+
+Different order derivative of $f(x)=\sin(x)$
 
 <img src="/assets/different_order_sin_derivative.png" />
 
+</div>
+
+We can see the fractional calculus is quite different from classical calculus.
+
 </v-clicks>
 
+
 </div>
+
+---
+
+<v-clicks>
+
+If we want to see different order derivative of $f(x)=\sin(x)$ in a more (With *tspan*, *order* and *value* axis):
+
+
+<img src="/assets/3dexample.png" />
+
+</v-clicks>
+
 
 ---
 layout: default
@@ -337,6 +451,32 @@ layout: default
 # Different sense of fractional derivative and integral
 
 Thanks to the hard work of pioneers, there are many sense of fractional derivative and integral.
+
+The widely used fractional derivative sense are:
+
+### Caputo Sense:
+
+$$
+^C_aD^\alpha_tf(t)=\frac{1}{\Gamma(n-\alpha)}\int_a^t\frac{f^{(n)}(\tau)d\tau}{(t-\tau)^{\alpha-n+1}},\quad(n-1\leq\alpha < n)
+$$
+
+### Riemann Liouville Sense:
+
+$$
+_aD^\alpha_tf(t)=\frac{1}{\Gamma(n-\alpha)}(\frac{d}{dt})^n\int_a^t\frac{f(\tau)d\tau}{(t-\tau)^{\alpha-n+1}}
+$$
+
+### Grunwald Letnikov Sense:
+
+$$
+D^\alpha f(t)=\displaystyle\lim_{h\leftarrow 0}h^{-\alpha}\displaystyle\sum_{k=0}^{\frac{t-a}{h}}(-1)^k{\alpha\choose n}f(t-kh)
+$$
+
+---
+layout: default
+---
+
+# Different sense derivative in FractionalCalculus.jl
 
 FractionalCalculus.jl has supports for many sense of fractional derivative and fractional integral:
 
@@ -401,6 +541,8 @@ layout: two-cols
 <br>
 <br>
 <br>
+<br>
+
 
 
 ## Fractional Integral
@@ -447,15 +589,24 @@ A generalization of differential equation
 
 Fractional differential equation can be seen as the generalization of differential equations. In our daily life, models are usually better described in fractional differential equations.
 
+Nowadays, fractional calculus and fractional differential equations are getting more and more attentions such as **Viscoelasticity**, **Memristor**. In **Control Theory**, fractional transfer function e.g. $G(s)=\frac{1}{s^{1.5}+s^{0.4}}$, and fractional differential equations are widely used when the usual modeling tools can't satisfy our need. Also need to mention there are fractional PID analogue---$PI^\lambda D^\mu$
+
+
+---
+layout: default
+---
+
+<img src="/assets/modeling.png" border="rounded" class="m-0 w-160 h-120" />
+
 
 
 ---
 layout: two-cols
 ---
 
-# Getting start!
+# Get started!
 
-Let's learn how to use **FractionalDiffEq.jl** to easily solve a FDE
+Let's learn how to use **FractionalDiffEq.jl** to easily solve an FDE
 
 <v-clicks>
 
@@ -491,6 +642,53 @@ Then plot the solution!!
 ![Example](/assets/example.png)
 
 </v-clicks>
+
+---
+layout: default
+---
+
+## Bagley Torvik Equation
+
+<div grid="~ cols-2 gap-2" m="-t-2">
+
+$$
+Ay''(t)+BD_t^\frac{3}{2}y(t)+Cy(t)=f(t)
+$$
+
+<div>
+
+<div grid="~ cols-2 gap-0" m="-t-3">
+
+<img src="/assets/bagleytorvikexample.png" class="m-0 w-30 h-40" />
+
+Damped object in Newtonian fluid
+
+</div>
+
+
+</div>
+
+</div>
+
+<div grid="~ cols-2 gap-2" m="-t-2">
+
+```julia
+using FractionalDiffEq
+using Plots, LaTeXStrings
+
+s="\$Bagley\\ Torvik\\ Equation\$"
+
+T=30
+h=0.05
+tspan = collect(0:h:T)
+result = bagleytorvik(1, 1, 1, 1, T, h)
+
+plot(tspan, result, title=s, legend=:bottomright)
+```
+
+<img src="/assets/bagleytorvik.png" />
+
+</div>
 
 
 ---
@@ -577,13 +775,15 @@ layout: default
 
 As a young organization and all of these packages are just version **0.1.***, all of the APIs and algorithms are under heavy development, all kinds of contributions are sincerely welcomed.
 
-I believe power of community is great, a group of people with the same interest working together for the same goal.(We prepared contribution gifts for contributors~~)
+I believe power of community is great, a group of people with the same interest working together for the same goal.
 
 # Road Map
 
--  Fractional Partial Differential Equations
+-  Fractional Partial Differential Equations.
 
--  More robust algorithms and better design
+-  More robust algorithms and better design.
+
+- There are still some interesting ideas~
 
 ### Welcome to join our community!!
 
@@ -618,8 +818,6 @@ layout: default
 Finite Difference? $f'(x)=\frac{f(x+h)-f(x-h)}{2h}$ Round Off Error 😔
 
 Symbolic Difference? Large Computation Cost 😔
-
-Auto Differentiation?  😔
 
 ### Complex Step Differentiation!!🙌
 
@@ -659,13 +857,63 @@ Compasion with finite difference:
 We can see the [round off error](https://en.wikipedia.org/wiki/Round-off_error) in Complex Step Differentiation is getting smaller and smaller when **h** becomes extremely small, while the error of finite difference is getting bigger and bigger.
 
 ---
+layout: default
+---
 
-The Complex Step Differentiation method also appeared in the [Deep Learning Book](https://www.deeplearningbook.org/contents/guidelines.html)
+#### The Complex Step Differentiation method also appeared in the [Deep Learning Book](https://www.deeplearningbook.org/contents/guidelines.html)(Page 434)!!
+
+<br>
+
+<div grid="~ cols-2 gap-2" m="-t-2">
+
+<div>
 
 
-<img src="/assets/csd.png" class="m-20 w-150" />
+
+> If one has access to numerical computation on complex numbers, then there is
+a very eﬃcient way to numerically estimate the gradient by using complex numbers
+as input to the function (*Squire and Trapp, 1998*). The method is based on the
+observation that
+  $$
+  f(x+i\epsilon)=f(x)+i\epsilon f'(x)+O(\epsilon^2)
+  $$
+  $$
+  \real(f(x+i\epsilon))=f(x)+O(\epsilon^2)
+  $$
+  $$
+  \image(\frac{f(x+i\epsilon)}{\epsilon})=f'(x)+O(\epsilon^2)
+  $$
+
+> where $i=\sqrt{-1}$. Unlike in the real-valued case above, there is no cancellation
+eﬀect because we take the diﬀerence between the value of $f$ at diﬀerent points. This allows the use of tiny values of $\epsilon$, like $\epsilon=10^{-150}$, which make the $O(\epsilon^2)$ error
+insigniﬁcant for all practical purposes.
+
+
+</div>
+
+<div>
+
+
+<img src="/assets/csd.png" class="m-10 w-120" />
 
 With complex arithmetic computing built inside, Julia is absolutely a good choice!
+
+</div>
+
+</div>
+
+
+<style>
+h4 {
+  background-color: #2B90B6;
+  background-image: linear-gradient(45deg, #4EC5D4 10%, #146b8c 20%);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  -moz-text-fill-color: transparent;
+}
+</style>
 
 ---
 layout: default
@@ -675,7 +923,7 @@ layout: default
 
 The generalization of **Single**complex to **Multi**complex
 
-$$\mathbb{C_n}=\{\zeta_n=\zeta_{n-1,1}+\zeta_{n-1,2}\cdot i_n,\quad \zeta_{n-1,1},\zeta_{n-1,2}\in\mathbb{C_{n-1}}\}
+$$\mathbb{C_n}=\{\zeta_n=\zeta_{n-1,1}+\zeta_{n-1,2}\cdot i_n,\quad \zeta_{n-1,1},\ \zeta_{n-1,2}\in\mathbb{C_{n-1}}\}
 $$
 
 ```julia
@@ -685,6 +933,8 @@ import Base: sinh, cosh, tanh
 
 +(bi1::bicomplex, bi2::complex) = mat2bicomplex(mat(bi1) + mat(bi2))
 -(bi1::bicomplex, bi2::complex) = mat2bicomplex(mat(bi1) - mat(bi2))
+sin(bi::bicomplex) = bicomplex(cosh(i2)*sin(i1), sinh(i2)*cos(i1))
+# Extend basic math operations and functions to multicomplex space
 ```
 
 With fully utilizing multiple dispatch and operator overloading, we can achieve high order derivative computing.
