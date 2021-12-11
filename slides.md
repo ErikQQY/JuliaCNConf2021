@@ -826,7 +826,7 @@ class: text-center
 layout: default
 ---
 
-## How can we get derivative??
+## How to find derivative??
 
 <v-clicks>
 
@@ -837,12 +837,12 @@ Symbolic Difference? Large Computation Cost 😔
 ### Complex Step Differentiation!!🙌
 
 $$
-f'(x)=\frac{\mathcal{Im}(f(x+ih))}{h}
+f'(x)=\frac{\mathcal{imag}(f(x+ih))}{h}
 $$
 
 Very pleased to bring **ComplexDiff.jl** !!
 
-The complex step differentiation thoughts comes from **Cleve Moler**.
+The complex step differentiation thoughts comes from **Cleve Moler**.[^2]
 
 </v-clicks>
 
@@ -852,6 +852,20 @@ The complex step differentiation thoughts comes from **Cleve Moler**.
     <carbon-logo-github />
   </a>
 </div>
+
+[^2]: [Cleve Moler's Blog](https://blogs.mathworks.com/cleve/2013/10/14/complex-step-differentiation/)
+
+<style>
+.footnotes-sep {
+  @apply mt-20 opacity-10;
+}
+.footnotes {
+  @apply text-sm opacity-75;
+}
+.footnote-backref {
+  display: none;
+}
+</style>
 
 ---
 layout: default
