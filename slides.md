@@ -334,7 +334,7 @@ Shadow in $g(\tau)$~$f(\tau)$ plane: **Fractional Integral**
 layout: default
 ---
 
-# There different grades of fractional calculus
+# Three different grades of fractional calculus
 
 <v-clicks>
 
