@@ -286,7 +286,7 @@ Bingo🎉!! We get the semi-derivative of $f(x)=x$!
 layout: default
 ---
 
-## Then what's the geometric and physical meaning of fractional calculus?
+## Then what's the geometric and physical meaning of fractional calculus?[^1]
 
 <div class="grid grid-cols-2 gap-x-1">
 
@@ -329,6 +329,21 @@ Shadow in $g(\tau)$~$f(\tau)$ plane: **Fractional Integral**
 </div>
 
 </div>
+
+[^1]: [Geometric and Physical Interpretation of Fractional Integration and Fractional Differentiation](https://arxiv.org/abs/math/0110241)
+
+
+<style>
+.footnotes-sep {
+  @apply mt-20 opacity-10;
+}
+.footnotes {
+  @apply text-sm opacity-75;
+}
+.footnote-backref {
+  display: none;
+}
+</style>
 
 ---
 layout: default
@@ -878,10 +893,10 @@ observation that
   f(x+i\epsilon)=f(x)+i\epsilon f'(x)+O(\epsilon^2)
   $$
   $$
-  \real(f(x+i\epsilon))=f(x)+O(\epsilon^2)
+  real(f(x+i\epsilon))=f(x)+O(\epsilon^2)
   $$
   $$
-  \image(\frac{f(x+i\epsilon)}{\epsilon})=f'(x)+O(\epsilon^2)
+  imag(\frac{f(x+i\epsilon)}{\epsilon})=f'(x)+O(\epsilon^2)
   $$
 
 > where $i=\sqrt{-1}$. Unlike in the real-valued case above, there is no cancellation
@@ -923,7 +938,12 @@ layout: default
 
 The generalization of **Single**complex to **Multi**complex
 
-$$\mathbb{C_n}=\{\zeta_n=\zeta_{n-1,1}+\zeta_{n-1,2}\cdot i_n,\quad \zeta_{n-1,1},\ \zeta_{n-1,2}\in\mathbb{C_{n-1}}\}
+$$
+\mathbb{C_n}=\{\zeta_n=\zeta_{n-1,1}+\zeta_{n-1,2}\cdot i_n,\quad \zeta_{n-1,1},\ \zeta_{n-1,2}\in\mathbb{C_{n-1}}\}
+$$
+
+$$
+f^{(n)}=\frac{imag[f(x+i_1h+i_2h+\cdots+i_nh)]}{h^n}+O(h^2)
 $$
 
 ```julia
