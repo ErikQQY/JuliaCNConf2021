@@ -365,17 +365,19 @@ $$
 ^C_0D^{\alpha(t)}_t=\frac{1}{\Gamma(n-\alpha(t))}\int_0^t\frac{f^{(n)}(\tau)d\tau}{(t-\tau)^{\alpha(t)-n+1}},\quad (n-1\leq\alpha(t) < n)
 $$
 
-### Distributed order (DO)
+### Distributed order (DO)[^1]
 
 $$
 _aD^{\phi(\alpha)}f(t)=\int_c^d\phi(\alpha){_aD_t^\alpha}f(t)d\alpha
 $$
-
+Distributed
 $$
 \int_c^d\phi(\alpha)d\alpha=1
 $$
 
 </v-clicks>
+
+[^1]: [Distributed-Order Dynamic Systems](https://link.springer.com/book/10.1007/978-1-4471-2852-6)
 
 
 ---
@@ -842,7 +844,7 @@ $$
 
 Very pleased to bring **ComplexDiff.jl** !!
 
-The complex step differentiation thoughts comes from **Cleve Moler**.[^2]
+The complex step differentiation thoughts comes from **Cleve Moler**.
 
 </v-clicks>
 
@@ -853,19 +855,8 @@ The complex step differentiation thoughts comes from **Cleve Moler**.[^2]
   </a>
 </div>
 
-[^2]: [Cleve Moler's Blog](https://blogs.mathworks.com/cleve/2013/10/14/complex-step-differentiation/)
 
-<style>
-.footnotes-sep {
-  @apply mt-20 opacity-10;
-}
-.footnotes {
-  @apply text-sm opacity-75;
-}
-.footnote-backref {
-  display: none;
-}
-</style>
+
 
 ---
 layout: default
