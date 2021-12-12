@@ -345,40 +345,6 @@ Shadow in $g(\tau)$~$f(\tau)$ plane: **Fractional Integral**
 }
 </style>
 
----
-layout: default
----
-
-# Three different grades of fractional calculus
-
-<v-clicks>
-
-### Constant non-integer order (CO)
-
-$$
-_aD^\alpha_t f(t)=\frac{1}{\Gamma(n-\alpha)}(\frac{d}{dt})^n\int_a^t\frac{f(\tau)d\tau}{(t-\tau)^{\alpha-n+1}},\quad (n-1\leq\alpha < n)
-$$
-
-### Variable order (VO)
-
-$$
-^C_0D^{\alpha(t)}_t=\frac{1}{\Gamma(n-\alpha(t))}\int_0^t\frac{f^{(n)}(\tau)d\tau}{(t-\tau)^{\alpha(t)-n+1}},\quad (n-1\leq\alpha(t) < n)
-$$
-
-### Distributed order (DO)[^1]
-
-$$
-_aD^{\phi(\alpha)}f(t)=\int_c^d\phi(\alpha){_aD_t^\alpha}f(t)d\alpha
-$$
-Distributed
-$$
-\int_c^d\phi(\alpha)d\alpha=1
-$$
-
-</v-clicks>
-
-[^1]: [Distributed-Order Dynamic Systems](https://link.springer.com/book/10.1007/978-1-4471-2852-6)
-
 
 ---
 layout: default
